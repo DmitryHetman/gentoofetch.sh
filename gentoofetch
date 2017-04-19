@@ -127,13 +127,13 @@ echo '[0m[1;35m         -/oyddmdhs+:.[0m[1;35m              '$USER'[0m[1m@
 echo '[0m[1;35m     -o[0m[1;37mdNMMMMMMMMNNmhy+[0m[1;35m-`           OS:[0m Gentoo '$GentooRelease
 echo '[0m[1;35m   -y[0m[1;37mNMMMMMMMMMMMNNNmmdhy[0m[1;35m+-         Kernel:[0m '$(uname -sr)
 echo '[0m[1;35m `o[0m[1;37mmMMMMMMMMMMMMNmdmmmmddhhy[0m[1;35m/`      Uptime:[0m '$(uptime -p)
-echo '[0m[1;35m om[0m[1;37mMMMMMMMMMMMN[0m[1;35mhhyyyo[0m[1;37mhmdddhhhd[0m[1;35mo`    Packages:[0m '$(ls -d /var/db/pkg/*/*|wc -l) 
+echo '[0m[1;35m om[0m[1;37mMMMMMMMMMMMN[0m[1;35mhhyyyo[0m[1;37mhmdddhhhd[0m[1;35mo`    Packages:[0m '$(ls -d /var/db/pkg/*/*|wc -l)
 echo '[0m[1;35m.y[0m[1;37mdMMMMMMMMMMd[0m[1;35mhs++so/s[0m[1;37mmdddhhhhdm[0m[1;35m+`  Shell:[0m '${SHELL##*/}
 echo '[0m[1;35m oy[0m[1;37mhdmNMMMMMMMN[0m[1;35mdyooy[0m[1;37mdmddddhhhhyhN[0m[1;35md. CPU:[0m '$(uname -p)
 echo '[0m[1;35m  :o[0m[1;37myhhdNNMMMMMMMNNNmmdddhhhhhyym[0m[1;35mMh GPU:[0m Intel HD Graphics 4600'
-echo '[0m[1;35m    .:[0m[1;37m+sydNMMMMMNNNmmmdddhhhhhhmM[0m[1;35mmy RAM:[0m '$Total/$Used
+echo '[0m[1;35m    .:[0m[1;37m+sydNMMMMMNNNmmmdddhhhhhhmM[0m[1;35mmy RAM:[0m '$Used/$Total
 echo '[0m[1;35m       /m[0m[1;37mMMMMMMNNNmmmdddhhhhhmMNh[0m[1;35ms: Root:[0m '"${RootUsage}"
-echo '[0m[1;35m    `o[0m[1;37mNMMMMMMMNNNmmmddddhhdmMNhs[0m[1;35m+`  GCC:[0m '$GCCVersion 
+echo '[0m[1;35m    `o[0m[1;37mNMMMMMMMNNNmmmddddhhdmMNhs[0m[1;35m+`  GCC:[0m '$GCCVersion
 echo '[0m[1;35m  `s[0m[1;37mNMMMMMMMMNNNmmmdddddmNMmhs[0m[1;35m/.    Clib:[0m '$Clib
 echo '[0m[1;35m /N[0m[1;37mMMMMMMMMNNNNmmmdddmNMNdso[0m[1;35m:`      Profile:[0m '$GentooProfile
 echo '[0m[1;35m+M[0m[1;37mMMMMMMNNNNNmmmmdmNMNdso[0m[1;35m/-         Terminal:[0m '$Terminal
