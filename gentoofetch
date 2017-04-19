@@ -123,15 +123,6 @@ DetectRootUsage
 DetectGraphicEnvironment
 DetectTerminal
 DetectRAM
-#printf "Release:             %s\n" "${GentooRelease}"
-#printf "Profile:             %s\n" "${GentooProfile}"
-#printf "GCC:                 %s\n" "${GCCVersion}"
-#printf "Clib:                %s\n" "${Clib}"
-#printf "GPU:                 %s\n" "${GPU}"
-#printf "Sound Card:          %s\n" "${SoundCard}"
-#printf "Root Usage:          %s\n" "${RootUsage}"
-#printf "Terminal:            %s\n" "${Terminal}"
-#printf "Graphic Environment: %s\n" "${GraphicEnvironment}"
 echo '[0m[1;35m         -/oyddmdhs+:.[0m[1;35m              '$USER'[0m[1m@[0m[0m[1;35m'$(hostname)
 echo '[0m[1;35m     -o[0m[1;37mdNMMMMMMMMNNmhy+[0m[1;35m-`           OS:[0m Gentoo '$GentooRelease
 echo '[0m[1;35m   -y[0m[1;37mNMMMMMMMMMMMNNNmmdhy[0m[1;35m+-         Kernel:[0m '$(uname -sr)
