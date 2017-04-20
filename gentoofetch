@@ -69,15 +69,8 @@ DetectIntelGPU(){
 }
 
 DetectSoundCard(){
- local Card
- local CardNumber
- local Codec
- Card=$(grep -m1 PCH /proc/asound/cards)
- Card=${Card#*' '}
- CardNumber=${Card%%' '*}
- Card=${Card##*' - '}
- Codec=$(grep -m1 Codec /proc/asound/card${CardNumber}/codec#*)
- SoundCard="${Card}:${Codec#*Codec:}"
+local Line
+SoundCard=$(aplay -L|grep -m1 -A1 'default:'|sed -n 2p)
 }
 
 DetectRootUsage(){
@@ -137,7 +130,7 @@ echo '[0m[1;35m    `o[0m[1;37mNMMMMMMMNNNmmmddddhhdmMNhs[0m[1;35m+`  GCC:
 echo '[0m[1;35m  `s[0m[1;37mNMMMMMMMMNNNmmmdddddmNMmhs[0m[1;35m/.    Clib:[0m '$Clib
 echo '[0m[1;35m /N[0m[1;37mMMMMMMMMNNNNmmmdddmNMNdso[0m[1;35m:`      Profile:[0m '$GentooProfile
 echo '[0m[1;35m+M[0m[1;37mMMMMMMNNNNNmmmmdmNMNdso[0m[1;35m/-         Terminal:[0m '$Terminal
-echo '[0m[1;35myM[0m[1;37mMNNNNNNNmmmmmNNMmhs+/[0m[1;35m-`           Sound Card:[0m '$SoundCard
+echo '[0m[1;35myM[0m[1;37mMNNNNNNNmmmmmNNMmhs+/[0m[1;35m-`           Sound Card:[0m'$SoundCard
 echo '[0m[1;35m/h[0m[1;37mMMNNNNNNNNMNdhs++/[0m[1;35m-`              Graphic Environment:[0m '$GraphicEnvironment
 echo '[0m[1;35m`/[0m[1;37mohdmmddhys+++/:[0m[1;35m.`'
 echo '[0m[1;35m  `-//////:--.[0m'
