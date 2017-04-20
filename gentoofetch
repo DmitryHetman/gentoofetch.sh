@@ -81,7 +81,7 @@ DetectSoundCard(){
 }
 
 DetectRootUsage(){
- RootUsage=$(df -hT|sed -n 2p|awk '{print $4 "/"  $3 " " $2}')
+ RootUsage=$(df -xdevtmpfs -xtmpfs -hT|sed -n 2p|awk '{print $4 "/"  $3 " " $2}')
 }
 
 DetectTerminal(){
