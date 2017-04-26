@@ -74,7 +74,7 @@ SoundCard=$(aplay -L|grep -m1 -A1 'default:'|sed -n 2p)
 }
 
 DetectRootUsage(){
- RootUsage=$(df -xdevtmpfs -xtmpfs -hT|sed -n 2p|awk '{print $4 "/"  $3 " " $2}')
+ RootUsage=$(df -xdevtmpfs -xtmpfs -hT|awk 'FNR==2 {print $4 "/"  $3 " " $2}')
 }
 
 DetectTerminal(){
