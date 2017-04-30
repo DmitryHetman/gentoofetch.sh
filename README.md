@@ -1,6 +1,6 @@
 # gentoofetch
 Not portable information system dash script for Gentoo GNU/Linux.
-![wayland-screenshot](https://cloud.githubusercontent.com/assets/18743742/25186948/30bec608-2511-11e7-8e7b-6bb52e10f085.png)
+![wayland-screenshot](https://raw.githubusercontent.com/DmitryHetman/gentoofetch/master/wayland-screenshot.png)
 gentoofetch is 137 lines long, 5kb in size 42 times smaller than 
 screenfetch 26 times smaller than neofetch. It's written in ASCII 
 characrers, so no Unicode required. Memory detection doesn't work in busybox shell.
