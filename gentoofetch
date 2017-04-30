@@ -70,7 +70,7 @@ DetectIntelGPU(){
 
 DetectSoundCard(){
 local Line
-SoundCard=$(aplay -L|grep -m1 -A1 'default:'|sed -n 2p)
+SoundCard=$(aplay -L|grep -m1 -A1 'default:'|sed -n 2p|tr , :)
 }
 
 DetectRootUsage(){
