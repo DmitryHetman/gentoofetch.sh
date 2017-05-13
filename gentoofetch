@@ -7,7 +7,6 @@ DetectGentooRelease(){
   '**')   GentooRelease=experimental ;;
  esac
 }
-
 DetectGentooProfile(){
  local Profile
  Profile=$(file '/etc/portage/make.profile');
@@ -16,13 +15,11 @@ DetectGentooProfile(){
  Profile="${Profile%%/*} ${Profile##*/}"
  GentooProfile="${Profile}"
 }
-
 DetectGCC(){
  GCCVersion=$(gcc --version)
  GCCVersion=${GCCVersion#*(}
  GCCVersion=${GCCVersion%%)*}
 }
-
 DetectClib(){
  local MACHTYPE=$(gcc -dumpmachine)
  case $MACHTYPE in
@@ -43,7 +40,6 @@ DetectClib(){
   esac
  Clib="${Clib} ${ClibVer}"
 }
-
 DetectIntelGPU(){
  GPU=$(awk '{print $2}' /proc/fb)
  case $GPU in
@@ -67,16 +63,13 @@ DetectIntelGPU(){
    esac
  fi
 }
-
 DetectSoundCard(){
-local Line
 SoundCard=$(aplay -L|grep -m1 -A1 'default:'|sed -n 2p|tr , :)
+SoundCard=${SoundCard#*'   '}
 }
-
 DetectRootUsage(){
  RootUsage=$(df -xdevtmpfs -xtmpfs -hT|awk 'FNR==2 {print $4 "/"  $3 " " $2}')
 }
-
 DetectTerminal(){
  if [ ${TMUX_PANE} ]
   then
@@ -85,7 +78,6 @@ DetectTerminal(){
   Terminal=$TERM
  fi
 }
-
 DetectGraphicEnvironment(){
 if [ -S  $XDG_RUNTIME_DIR/wayland-[0-9] ] # if Wayland running
    then
@@ -106,6 +98,9 @@ Buf=$(free -h)
 Total=$(printf ${Buf#*Mem:})
 Used=$(printf ${Buf#*${Total}})
 }
+DetectResolution(){
+Resolution=$(cat /sys/devices/virtual/graphics/fbcon/subsystem/fb0/device/drm/card0/device/graphics/fb0/virtual_size|tr ', ' 'x')
+}
 DetectGentooRelease
 DetectGentooProfile
 DetectGCC
@@ -116,7 +111,8 @@ DetectRootUsage
 DetectGraphicEnvironment
 DetectTerminal
 DetectRAM
-printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" \
+DetectResolution
+printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" \
 '[0m[1;35m         -/oyddmdhs+:.[0m[1;35m              '$USER'[0m[1m@[0m[0m[1;35m'"$(hostname)" \
 '[0m[1;35m     -o[0m[1;37mdNMMMMMMMMNNmhy+[0m[1;35m-`           OS:[0m Gentoo '$GentooRelease \
 '[0m[1;35m   -y[0m[1;37mNMMMMMMMMMMMNNNmmdhyb[0m[1;35m+-        Kernel:[0m '"$(uname -sr)" \
@@ -133,5 +129,5 @@ printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n
 '[0m[1;35m+M[0m[1;37mMMMMMMNNNNNmmmmdmNMNdso[0m[1;35m/-         Terminal:[0m '$Terminal \
 '[0m[1;35myM[0m[1;37mMNNNNNNNmmmmmNNMmhs+/[0m[1;35m-`           Sound Card:[0m'"$SoundCard" \
 '[0m[1;35m/h[0m[1;37mMMNNNNNNNNMNdhs++/[0m[1;35m-`              Graphic Environment:[0m '$GraphicEnvironment \
-'[0m[1;35m`/[0m[1;37mohdmmddhys+++/:[0m[1;35m.`' \
+'[0m[1;35m`/[0m[1;37mohdmmddhys+++/:[0m[1;35m.`                 Resolution:[0m '$Resolution \
 '[0m[1;35m  `-//////:--.[0m'
