@@ -116,7 +116,7 @@ printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n
 '[0m[1;35m         -/oyddmdhs+:.[0m[1;35m              '$USER'[0m[1m@[0m[0m[1;35m'"$(hostname)" \
 '[0m[1;35m     -o[0m[1;37mdNMMMMMMMMNNmhy+[0m[1;35m-`           OS:[0m Gentoo '$GentooRelease \
 '[0m[1;35m   -y[0m[1;37mNMMMMMMMMMMMNNNmmdhyb[0m[1;35m+-        Kernel:[0m '"$(uname -sr)" \
-'[0m[1;35m `o[0m[1;37mmMMMMMMMMMMMMNmdmmmmddhhy[0m[1;35m/`      Uptime:[0m '"$(uptime -p)" \
+'[0m[1;35m `o[0m[1;37mmMMMMMMMMMMMMNmdmmmmddhhy[0m[1;35m/`      Uptime:[0m '"$(uptime -p|tr -d 'up ')" \
 '[0m[1;35m om[0m[1;37mMMMMMMMMMMMN[0m[1;35mhhyyyo[0m[1;37mhmdddhhhd[0m[1;35mo`    Packages:[0m '$(ls -d /var/db/pkg/*/*|wc -l) \
 '[0m[1;35m.y[0m[1;37mdMMMMMMMMMMd[0m[1;35mhs++so/s[0m[1;37mmdddhhhhdm[0m[1;35m+`  Shell:[0m '${SHELL##*/} \
 '[0m[1;35m oy[0m[1;37mhdmNMMMMMMMN[0m[1;35mdyooy[0m[1;37mdmddddhhhhyhN[0m[1;35md. CPU:[0m '"$(uname -p)" \
