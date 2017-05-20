@@ -1,3 +1,1 @@
-Add AMD and Nvidia GPU detection
-Fix resolution detector to work everywhere
-Add cabylake/cannonlake intel HD graphics detection.
+Get rid of hard-coded GPU detection.
