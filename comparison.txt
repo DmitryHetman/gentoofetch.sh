@@ -1,0 +1,10 @@
+dmitry@wayland $ wc gentoofetch.sh
+ 128  313 4043 gentoofetch.sh
+dmitry@wayland $ wc /usr/bin/neofetch
+  4163  12743 135522 /usr/bin/neofetch
+dmitry@wayland $ wc /usr/bin/screenfetch
+  5363  20817 214617 /usr/bin/screenfetch
+dmitry@wayland $ echo $((135522/4043))
+33
+dmitry@wayland $ echo $((214617/4043))
+53
